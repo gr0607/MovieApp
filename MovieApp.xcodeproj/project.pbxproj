@@ -14,6 +14,7 @@
 		8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */; };
 		8468F3622A2CCB4E00AD8329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3612A2CCB4E00AD8329 /* Assets.xcassets */; };
 		8468F3652A2CCB4E00AD8329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */; };
+		84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8468F3612A2CCB4E00AD8329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8468F3642A2CCB4E00AD8329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8468F3662A2CCB4E00AD8329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,9 +123,18 @@
 				841942562A2E3A20002E65F1 /* Home Screen */,
 				841942572A2E3A2D002E65F1 /* Search Screen */,
 				841942582A2E3A38002E65F1 /* Detail Screen */,
+				84C1D5032A2E552C00AE6AE4 /* Extensions */,
 				841942522A2E36BE002E65F1 /* Supporting Files */,
 			);
 			path = MovieApp;
+			sourceTree = "<group>";
+		};
+		84C1D5032A2E552C00AE6AE4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +144,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8468F3692A2CCB4E00AD8329 /* Build configuration list for PBXNativeTarget "MovieApp" */;
 			buildPhases = (
-				8419425F2A2E3DC1002E65F1 /* ShellScript */,
 				8468F3512A2CCB4D00AD8329 /* Sources */,
 				8468F3522A2CCB4D00AD8329 /* Frameworks */,
 				8468F3532A2CCB4D00AD8329 /* Resources */,
@@ -191,26 +201,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		8419425F2A2E3DC1002E65F1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8468F3512A2CCB4D00AD8329 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -219,6 +209,7 @@
 				8419425E2A2E3B1B002E65F1 /* SearchViewController.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
 				8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */,
+				84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */,
 				841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */,
 				8419425A2A2E3A5B002E65F1 /* HomeViewController.swift in Sources */,
 			);
@@ -360,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5549XF852R;
 				INFOPLIST_FILE = "MovieApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5549XF852R;
 				INFOPLIST_FILE = "MovieApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
