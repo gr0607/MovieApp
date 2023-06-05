@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841942532A2E3702002E65F1 /* MainTabBarController.swift */; };
 		8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468F3582A2CCB4D00AD8329 /* AppDelegate.swift */; };
 		8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */; };
-		8468F35D2A2CCB4D00AD8329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468F35C2A2CCB4D00AD8329 /* ViewController.swift */; };
-		8468F3602A2CCB4D00AD8329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8468F35E2A2CCB4D00AD8329 /* Main.storyboard */; };
 		8468F3622A2CCB4E00AD8329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3612A2CCB4E00AD8329 /* Assets.xcassets */; };
 		8468F3652A2CCB4E00AD8329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841942532A2E3702002E65F1 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8468F3552A2CCB4D00AD8329 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8468F3582A2CCB4D00AD8329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8468F35C2A2CCB4D00AD8329 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8468F35F2A2CCB4D00AD8329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8468F3612A2CCB4E00AD8329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8468F3642A2CCB4E00AD8329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8468F3662A2CCB4E00AD8329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +35,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841942512A2E364A002E65F1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */,
+				8468F3582A2CCB4D00AD8329 /* AppDelegate.swift */,
+				841942532A2E3702002E65F1 /* MainTabBarController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		841942522A2E36BE002E65F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8468F3662A2CCB4E00AD8329 /* Info.plist */,
+				8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */,
+				8468F3612A2CCB4E00AD8329 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8468F34C2A2CCB4D00AD8329 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +74,8 @@
 		8468F3572A2CCB4D00AD8329 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
-				8468F3582A2CCB4D00AD8329 /* AppDelegate.swift */,
-				8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */,
-				8468F35C2A2CCB4D00AD8329 /* ViewController.swift */,
-				8468F35E2A2CCB4D00AD8329 /* Main.storyboard */,
-				8468F3612A2CCB4E00AD8329 /* Assets.xcassets */,
-				8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */,
-				8468F3662A2CCB4E00AD8329 /* Info.plist */,
+				841942512A2E364A002E65F1 /* App */,
+				841942522A2E36BE002E65F1 /* Supporting Files */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -126,7 +139,6 @@
 			files = (
 				8468F3652A2CCB4E00AD8329 /* LaunchScreen.storyboard in Resources */,
 				8468F3622A2CCB4E00AD8329 /* Assets.xcassets in Resources */,
-				8468F3602A2CCB4D00AD8329 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +149,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8468F35D2A2CCB4D00AD8329 /* ViewController.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
 				8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */,
+				841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8468F35E2A2CCB4D00AD8329 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8468F35F2A2CCB4D00AD8329 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,7 +291,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MovieApp/Info.plist;
+				INFOPLIST_FILE = "MovieApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +309,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MovieApp/Info.plist;
+				INFOPLIST_FILE = "MovieApp/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
