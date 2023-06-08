@@ -14,6 +14,7 @@
 		8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */; };
 		8468F3622A2CCB4E00AD8329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3612A2CCB4E00AD8329 /* Assets.xcassets */; };
 		8468F3652A2CCB4E00AD8329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */; };
+		84BE57F02A322CE1002941BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE57EF2A322CE1002941BB /* HomeView.swift */; };
 		84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		8468F3612A2CCB4E00AD8329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8468F3642A2CCB4E00AD8329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8468F3662A2CCB4E00AD8329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BE57EF2A322CE1002941BB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 		841942562A2E3A20002E65F1 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
+				84BE57EE2A322C20002941BB /* Views */,
 				8419425B2A2E3AFC002E65F1 /* Controllers */,
 			);
 			path = "Home Screen";
@@ -127,6 +130,14 @@
 				841942522A2E36BE002E65F1 /* Supporting Files */,
 			);
 			path = MovieApp;
+			sourceTree = "<group>";
+		};
+		84BE57EE2A322C20002941BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84BE57EF2A322CE1002941BB /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84C1D5032A2E552C00AE6AE4 /* Extensions */ = {
@@ -207,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8419425E2A2E3B1B002E65F1 /* SearchViewController.swift in Sources */,
+				84BE57F02A322CE1002941BB /* HomeView.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
 				8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */,
 				84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */,
