@@ -13,7 +13,7 @@ class NameContainerView: UIView {
 
 	private let nameLabel: UILabel = {
 		let label = UILabel()
-		label.font = UIFont(name: "Georgia", size: 25)
+		label.font = UIFont.boldSystemFont(ofSize: 25)
 		label.text = "Scary movie"
 		label.textColor = .white
 		return label

@@ -57,7 +57,7 @@ class TrendingMoviesCell: UICollectionViewCell {
 			nameContainerView.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
 			nameContainerView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
 			nameContainerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
-			nameContainerView.heightAnchor.constraint(equalToConstant: 80),
+			nameContainerView.heightAnchor.constraint(equalToConstant: 60),
 
 			imdbView.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
 			imdbView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),

@@ -35,6 +35,8 @@ class HomeView: UIView{
 		return mainImage
 	}()
 
+	private let continueWatchingView = ContinueWatchingView()
+
 	private let trendingLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Trending"
@@ -75,6 +77,7 @@ class HomeView: UIView{
 		self.backgroundColor = .mainThemeColor
 		self.addSubview(mainLabel)
 		self.addSubview(mainImage)
+		self.addSubview(continueWatchingView)
 		self.addSubview(trendingLabel)
 		self.addSubview(trendingMoviewCollectionView)
 	}
@@ -82,6 +85,7 @@ class HomeView: UIView{
 	private func setupConstraints() {
 		mainLabel.translatesAutoresizingMaskIntoConstraints = false
 		mainImage.translatesAutoresizingMaskIntoConstraints = false
+		continueWatchingView.translatesAutoresizingMaskIntoConstraints = false
 		trendingLabel.translatesAutoresizingMaskIntoConstraints = false
 		trendingMoviewCollectionView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -95,6 +99,11 @@ class HomeView: UIView{
 			mainImage.topAnchor.constraint(equalTo: self.mainLabel.bottomAnchor, constant: 24),
 			mainImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -24),
 			mainImage.heightAnchor.constraint(equalToConstant: 204),
+
+			continueWatchingView.bottomAnchor.constraint(equalTo: self.mainImage.bottomAnchor, constant: -10),
+			continueWatchingView.leftAnchor.constraint(equalTo: self.mainImage.leftAnchor, constant: 10),
+			continueWatchingView.heightAnchor.constraint(equalToConstant: 55),
+			continueWatchingView.widthAnchor.constraint(equalToConstant: 250),
 
 			trendingLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 24),
 			trendingLabel.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 24),
