@@ -21,4 +21,5 @@ extension UIColor {
 					alpha: 1.0)
 	}
 	static let mainThemeColor = UIColor(red: 0.08, green: 0.08, blue: 0.12, alpha: 1)
+	static let containerViewColor = UIColor.rgb(redColor: 218, greenColor: 218, blueColor: 218, alpha: 1)
 }

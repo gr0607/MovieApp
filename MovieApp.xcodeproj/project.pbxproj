@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8415F2732A3440E100DF8FFB /* TrendingMoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F2722A3440E100DF8FFB /* TrendingMoviesCell.swift */; };
+		8415F2752A34448000DF8FFB /* NameContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F2742A34448000DF8FFB /* NameContainerView.swift */; };
+		8415F2772A344DFF00DF8FFB /* ImdbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F2762A344DFF00DF8FFB /* ImdbView.swift */; };
+		8415F2792A344E8700DF8FFB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415F2782A344E8700DF8FFB /* UIView + Extension.swift */; };
 		841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841942532A2E3702002E65F1 /* MainTabBarController.swift */; };
 		8419425A2A2E3A5B002E65F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841942592A2E3A5B002E65F1 /* HomeViewController.swift */; };
 		8419425E2A2E3B1B002E65F1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419425D2A2E3B1B002E65F1 /* SearchViewController.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8415F2722A3440E100DF8FFB /* TrendingMoviesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMoviesCell.swift; sourceTree = "<group>"; };
+		8415F2742A34448000DF8FFB /* NameContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameContainerView.swift; sourceTree = "<group>"; };
+		8415F2762A344DFF00DF8FFB /* ImdbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImdbView.swift; sourceTree = "<group>"; };
+		8415F2782A344E8700DF8FFB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		841942532A2E3702002E65F1 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		841942592A2E3A5B002E65F1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8419425D2A2E3B1B002E65F1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8415F2712A3440C400DF8FFB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8415F2762A344DFF00DF8FFB /* ImdbView.swift */,
+				8415F2742A34448000DF8FFB /* NameContainerView.swift */,
+				8415F2722A3440E100DF8FFB /* TrendingMoviesCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		841942512A2E364A002E65F1 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +153,7 @@
 		84BE57EE2A322C20002941BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8415F2712A3440C400DF8FFB /* Cell */,
 				84BE57EF2A322CE1002941BB /* HomeView.swift */,
 			);
 			path = Views;
@@ -144,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */,
+				8415F2782A344E8700DF8FFB /* UIView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,12 +237,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8415F2752A34448000DF8FFB /* NameContainerView.swift in Sources */,
 				8419425E2A2E3B1B002E65F1 /* SearchViewController.swift in Sources */,
+				8415F2732A3440E100DF8FFB /* TrendingMoviesCell.swift in Sources */,
 				84BE57F02A322CE1002941BB /* HomeView.swift in Sources */,
+				8415F2792A344E8700DF8FFB /* UIView + Extension.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
 				8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */,
 				84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */,
 				841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */,
+				8415F2772A344DFF00DF8FFB /* ImdbView.swift in Sources */,
 				8419425A2A2E3A5B002E65F1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

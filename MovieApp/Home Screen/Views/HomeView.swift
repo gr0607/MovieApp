@@ -15,7 +15,7 @@ class HomeView: UIView{
 	private let mainLabel: UILabel = {
 		let label = UILabel()
 
-		var mutableString = NSMutableAttributedString(string: "Movies Everywhere", attributes: [NSAttributedString.Key.font :UIFont(name: "Georgia", size: 25.0)!])
+		var mutableString = NSMutableAttributedString(string: "Movies Everywhere", attributes: [NSAttributedString.Key.font :UIFont(name: "Georgia", size: 30.0)!])
 		mutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location:0,length:9))
 		mutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location:7,length:10))
 
@@ -38,15 +38,18 @@ class HomeView: UIView{
 	private let trendingLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Trending"
-		label.font = UIFont(name: "Georgia", size: 25)
+		label.font = UIFont(name: "Georgia", size: 27)
 		label.textColor = .white
+		label.backgroundColor = .mainThemeColor
 		return label
 	}()
 
 	private let trendingMoviewCollectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
-		layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-		layout.itemSize = CGSize(width: 60, height: 60)
+		layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+		layout.minimumLineSpacing = 30
+		layout.itemSize = CGSize(width: 260, height: 390)
+		layout.scrollDirection = .horizontal
 
 		let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		return cv
@@ -69,7 +72,7 @@ class HomeView: UIView{
 	//MARK: - Helper Functions
 
 	private func configureUI() {
-		self.backgroundColor = .green
+		self.backgroundColor = .mainThemeColor
 		self.addSubview(mainLabel)
 		self.addSubview(mainImage)
 		self.addSubview(trendingLabel)
@@ -98,7 +101,7 @@ class HomeView: UIView{
 			trendingLabel.widthAnchor.constraint(equalToConstant: 120),
 			trendingLabel.heightAnchor.constraint(equalToConstant: 29),
 
-			trendingMoviewCollectionView.topAnchor.constraint(equalTo: self.trendingLabel.bottomAnchor, constant: 24),
+			trendingMoviewCollectionView.topAnchor.constraint(equalTo: self.trendingLabel.bottomAnchor, constant: 8),
 			trendingMoviewCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor),
 			trendingMoviewCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor),
 			trendingMoviewCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -106,9 +109,9 @@ class HomeView: UIView{
 	}
 
 	private func setupTrendingMoviesCollectionView() {
-		trendingMoviewCollectionView.backgroundColor = .yellow
+		trendingMoviewCollectionView.backgroundColor = .mainThemeColor
 		trendingMoviewCollectionView.dataSource = self
-		trendingMoviewCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: HomeView.moviesReuseID)
+		trendingMoviewCollectionView.register(TrendingMoviesCell.self, forCellWithReuseIdentifier: HomeView.moviesReuseID)
 	}
 }
 
@@ -119,7 +122,6 @@ extension HomeView: UICollectionViewDataSource {
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeView.moviesReuseID, for: indexPath)
-		cell.backgroundColor = .blue
 		return cell
 	}
 }
