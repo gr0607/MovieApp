@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchViewController: UIViewController {
 
@@ -19,6 +20,12 @@ class SearchViewController: UIViewController {
 	private func setupUI() {
 		setupNavigationBar()
 		setupSearchController()
+
+		self.view.addSubview(searchView)
+		searchView.snp.makeConstraints { make in
+			make.top.equalTo(self.view.safeAreaLayoutGuide)
+			make.left.right.bottom.equalToSuperview()
+		}
 	}
 
 	private func setupNavigationBar() {

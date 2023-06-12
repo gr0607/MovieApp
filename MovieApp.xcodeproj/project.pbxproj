@@ -21,6 +21,8 @@
 		8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468F35A2A2CCB4D00AD8329 /* SceneDelegate.swift */; };
 		8468F3622A2CCB4E00AD8329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3612A2CCB4E00AD8329 /* Assets.xcassets */; };
 		8468F3652A2CCB4E00AD8329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */; };
+		847258D22A374EC00064411F /* FilmsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847258D12A374EC00064411F /* FilmsCollectionViewCell.swift */; };
+		847258D42A37541E0064411F /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847258D32A37541E0064411F /* UIImage + Extension.swift */; };
 		84BE57F02A322CE1002941BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE57EF2A322CE1002941BB /* HomeView.swift */; };
 		84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		8468F3612A2CCB4E00AD8329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8468F3642A2CCB4E00AD8329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8468F3662A2CCB4E00AD8329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847258D12A374EC00064411F /* FilmsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsCollectionViewCell.swift; sourceTree = "<group>"; };
+		847258D32A37541E0064411F /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		84BE57EF2A322CE1002941BB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +135,7 @@
 		843B119D2A370ED000E00994 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				847258D02A374EA50064411F /* Cells */,
 				843B119E2A370EF100E00994 /* SearchView.swift */,
 			);
 			path = Views;
@@ -165,6 +170,14 @@
 			path = MovieApp;
 			sourceTree = "<group>";
 		};
+		847258D02A374EA50064411F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				847258D12A374EC00064411F /* FilmsCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		84BE57EE2A322C20002941BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 			children = (
 				84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */,
 				8415F2782A344E8700DF8FFB /* UIView + Extension.swift */,
+				847258D32A37541E0064411F /* UIImage + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,10 +281,12 @@
 				8415F2792A344E8700DF8FFB /* UIView + Extension.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
 				8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */,
+				847258D42A37541E0064411F /* UIImage + Extension.swift in Sources */,
 				843B119F2A370EF100E00994 /* SearchView.swift in Sources */,
 				84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */,
 				841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */,
 				8415F2772A344DFF00DF8FFB /* ImdbView.swift in Sources */,
+				847258D22A374EC00064411F /* FilmsCollectionViewCell.swift in Sources */,
 				8419425A2A2E3A5B002E65F1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
