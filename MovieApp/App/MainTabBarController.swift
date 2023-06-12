@@ -28,6 +28,7 @@ class MainTabBarController: UITabBarController {
 		homeVC.tabBarItem.image = UIImage(named: "home_main")!
 
 
+
 		let searchVC = UINavigationController(rootViewController: SearchViewController())
 		searchVC.tabBarItem.title = "Search"
 		searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")!
