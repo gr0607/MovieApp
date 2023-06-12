@@ -8,27 +8,38 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+
+	private let searchView = SearchView()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setupUI()
+	}
 
-		navigationItem.title = "Find Movies\nPronn"
+	private func setupUI() {
+		setupNavigationBar()
+		setupSearchController()
+	}
+
+	private func setupNavigationBar() {
+		navigationItem.title = "Search"
 		navigationController?.navigationBar.prefersLargeTitles = true
+		navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor : UIColor.white]
+		navigationController?.navigationBar.barTintColor = .mainThemeColor
 		view.backgroundColor = .mainThemeColor
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		setupNavigationBarColor()
+	private func setupSearchController() {
+		let search = UISearchController(searchResultsController: nil)
+		search.searchResultsUpdater = self
+		search.obscuresBackgroundDuringPresentation = false
+		search.searchBar.placeholder = "Sherlock Holmes"
+		navigationItem.searchController = search
 	}
+}
 
+extension SearchViewController: UISearchResultsUpdating {
+	func updateSearchResults(for searchController: UISearchController) {
 
-
-	private func setupNavigationBarColor() {
-		for view in self.navigationController?.navigationBar.subviews ?? [] {
-			 let subviews = view.subviews
-			 if subviews.count > 0, let label = subviews[0] as? UILabel {
-				label.textColor = .white
-			 }
-		}
 	}
 }
