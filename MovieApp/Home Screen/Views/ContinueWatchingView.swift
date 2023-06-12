@@ -13,7 +13,7 @@ class ContinueWatchingView: UIView {
 
 	private let playImageView: UIImageView = {
 		let imageView = UIImageView()
-		imageView.image = UIImage(named: "play")
+		imageView.image = UIImage(named: "Play-1")
 		imageView.contentMode = .scaleAspectFit
 		return imageView
 	}()

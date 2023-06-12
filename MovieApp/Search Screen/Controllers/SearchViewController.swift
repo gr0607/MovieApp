@@ -10,7 +10,9 @@ import UIKit
 class SearchViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		navigationController?.navigationBar.barTintColor = UIColor.green
+		navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.orange]
+		navigationItem.title = "BBB"
 		view.backgroundColor = .blue
 	}
 }

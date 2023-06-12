@@ -19,24 +19,21 @@ class MainTabBarController: UITabBarController {
 		view.backgroundColor = UIColor.mainThemeColor
 		tabBar.tintColor = .red
 		tabBar.barTintColor = .mainThemeColor
-	}
+		}
 
 	private func configureControllers() {
-		let homeVC = createNavigationController(for: HomeViewController(), "Home", "Movie", UIImage(named: "home_main")!)
-		let searchVC = createNavigationController(for: SearchViewController(), "Search", "SearchWhat", UIImage(systemName: "magnifyingglass")!)
 
-		self.viewControllers = [homeVC, searchVC]
+		let homeVC = UINavigationController(rootViewController: HomeViewController())
+		homeVC.tabBarItem.title = "Home"
+		homeVC.tabBarItem.image = UIImage(named: "home_main")!
+
+
+		let searchVC = UINavigationController(rootViewController: SearchViewController())
+		searchVC.tabBarItem.title = "Search"
+		searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")!
+
+
+		self.viewControllers = [searchVC, homeVC]
 	}
 
-	private func createNavigationController(for rootViewController: UIViewController, _ barTitle: String,
-																					_ title: String, _ image: UIImage) -> UINavigationController {
-		let navigationController = UINavigationController(rootViewController: rootViewController)
-
-		navigationController.tabBarItem.title = barTitle
-		navigationController.tabBarItem.image = image
-
-		navigationController.navigationBar.prefersLargeTitles = true
-		rootViewController.navigationItem.title = title
-		return navigationController
-	}
 }
