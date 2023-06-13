@@ -23,6 +23,8 @@
 		8468F3652A2CCB4E00AD8329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8468F3632A2CCB4E00AD8329 /* LaunchScreen.storyboard */; };
 		847258D22A374EC00064411F /* FilmsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847258D12A374EC00064411F /* FilmsCollectionViewCell.swift */; };
 		847258D42A37541E0064411F /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847258D32A37541E0064411F /* UIImage + Extension.swift */; };
+		8494E8542A382D9F0065E366 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E8532A382D9F0065E366 /* DetailViewController.swift */; };
+		8494E8562A382F370065E366 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E8552A382F370065E366 /* DetailView.swift */; };
 		84BE57F02A322CE1002941BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE57EF2A322CE1002941BB /* HomeView.swift */; };
 		84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		8468F3662A2CCB4E00AD8329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847258D12A374EC00064411F /* FilmsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsCollectionViewCell.swift; sourceTree = "<group>"; };
 		847258D32A37541E0064411F /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		8494E8532A382D9F0065E366 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8494E8552A382F370065E366 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		84BE57EF2A322CE1002941BB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +116,8 @@
 		841942582A2E3A38002E65F1 /* Detail Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8494E8512A382D5F0065E366 /* Views */,
+				8494E8522A382D660065E366 /* Controllers */,
 			);
 			path = "Detail Screen";
 			sourceTree = "<group>";
@@ -176,6 +182,22 @@
 				847258D12A374EC00064411F /* FilmsCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8494E8512A382D5F0065E366 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8494E8552A382F370065E366 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8494E8522A382D660065E366 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8494E8532A382D9F0065E366 /* DetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		84BE57EE2A322C20002941BB /* Views */ = {
@@ -275,11 +297,13 @@
 			files = (
 				8415F2752A34448000DF8FFB /* NameContainerView.swift in Sources */,
 				8419425E2A2E3B1B002E65F1 /* SearchViewController.swift in Sources */,
+				8494E8562A382F370065E366 /* DetailView.swift in Sources */,
 				845DFE532A34C44D000F826F /* ContinueWatchingView.swift in Sources */,
 				8415F2732A3440E100DF8FFB /* TrendingMoviesCell.swift in Sources */,
 				84BE57F02A322CE1002941BB /* HomeView.swift in Sources */,
 				8415F2792A344E8700DF8FFB /* UIView + Extension.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
+				8494E8542A382D9F0065E366 /* DetailViewController.swift in Sources */,
 				8468F35B2A2CCB4D00AD8329 /* SceneDelegate.swift in Sources */,
 				847258D42A37541E0064411F /* UIImage + Extension.swift in Sources */,
 				843B119F2A370EF100E00994 /* SearchView.swift in Sources */,
