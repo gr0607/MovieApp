@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
 
 	//MARK: - Properties
 
-	private let detailView = DetailView()
+	private let detailView = DetailScreenView()
 
 	//MARK: - Lifecycle
 

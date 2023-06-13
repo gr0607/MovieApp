@@ -25,4 +25,5 @@ extension UIColor {
 	static let containerViewColor = UIColor.rgb(redColor: 208, greenColor: 208, blueColor: 208, alpha: 1)
 	static let ultraWhiteColor = UIColor.rgb(redColor: 250, greenColor: 253, blueColor: 255, alpha: 1)
 	static let subWhiteColor = UIColor.rgb(redColor: 225, greenColor: 225, blueColor: 225, alpha: 1)
+	static let separatorViewColor = UIColor(red: 81, green: 81, blue: 81, alpha: 0.1)
 }
