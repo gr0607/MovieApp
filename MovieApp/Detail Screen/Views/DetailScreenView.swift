@@ -31,6 +31,8 @@ class DetailScreenView: UIView {
 	private let mainInfoView = MainInfoView()
 	private let mainSeparatorView = UIView()
 	private let genreView = GenreView()
+	private let secondSeparatorView = UIView()
+	private let aboutView = AboutView()
 
 
 	//MARK: - Lifecycle
@@ -47,14 +49,17 @@ class DetailScreenView: UIView {
 	//MARK: - Helpers Function
 
 	private func configureUI() {
-		self.backgroundColor = .green
+		self.backgroundColor = .mainThemeColor
 		mainSeparatorView.backgroundColor = .separatorViewColor
+		secondSeparatorView.backgroundColor = .separatorViewColor
 
 		self.addSubview(filmImageView)
 		self.filmImageView.addSubview(playButton)
 		self.addSubview(mainInfoView)
 		self.addSubview(mainSeparatorView)
 		self.addSubview(genreView)
+		self.addSubview(secondSeparatorView)
+		self.addSubview(aboutView)
 
 		setupConstraints()
 	}
@@ -62,7 +67,7 @@ class DetailScreenView: UIView {
 	private func setupConstraints() {
 		filmImageView.snp.makeConstraints { make in
 			make.top.left.right.equalToSuperview()
-			make.height.equalTo(350)
+			make.height.equalTo(filmImageView.snp.width)
 		}
 
 		playButton.snp.makeConstraints { make in
@@ -89,6 +94,20 @@ class DetailScreenView: UIView {
 			make.right.equalToSuperview().offset(-12)
 			make.top.equalTo(mainSeparatorView).offset(8)
 			make.height.equalTo(60)
+		}
+
+		secondSeparatorView.snp.makeConstraints { make in
+			make.height.equalTo(1)
+			make.left.equalToSuperview().offset(12)
+			make.right.equalToSuperview().offset(-12)
+			make.top.equalTo(genreView.snp.bottom).offset(8)
+		}
+
+		aboutView.snp.makeConstraints { make in
+			make.left.equalToSuperview().offset(12)
+			make.right.equalToSuperview().offset(-12)
+			make.top.equalTo(secondSeparatorView.snp.bottom).offset(8)
+			make.bottom.equalToSuperview()
 		}
 
 	}
