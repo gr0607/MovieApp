@@ -30,6 +30,8 @@ class DetailScreenView: UIView {
 
 	private let mainInfoView = MainInfoView()
 	private let mainSeparatorView = UIView()
+	private let genreView = GenreView()
+
 
 	//MARK: - Lifecycle
 
@@ -52,7 +54,7 @@ class DetailScreenView: UIView {
 		self.filmImageView.addSubview(playButton)
 		self.addSubview(mainInfoView)
 		self.addSubview(mainSeparatorView)
-		
+		self.addSubview(genreView)
 
 		setupConstraints()
 	}
@@ -80,6 +82,13 @@ class DetailScreenView: UIView {
 			make.left.equalToSuperview().offset(12)
 			make.right.equalToSuperview().offset(-12)
 			make.top.equalTo(mainInfoView.snp.bottom).offset(8)
+		}
+
+		genreView.snp.makeConstraints { make in
+			make.left.equalToSuperview().offset(12)
+			make.right.equalToSuperview().offset(-12)
+			make.top.equalTo(mainSeparatorView).offset(8)
+			make.height.equalTo(60)
 		}
 
 	}

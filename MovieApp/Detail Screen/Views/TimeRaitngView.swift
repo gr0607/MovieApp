@@ -21,7 +21,7 @@ class TimeRatingView: UIView {
 	private let timeLabel: UILabel = {
 		let label = UILabel()
 		label.text = "152 minutes"
-		label.font = UIFont.italicSystemFont(ofSize: 10)
+		label.font = UIFont.systemFont(ofSize: 10)
 		label.textColor = .subWhiteColor
 		return label
 	}()
@@ -36,7 +36,7 @@ class TimeRatingView: UIView {
 	private let raitingLabel: UILabel = {
 		let label = UILabel()
 		label.text = "7.0 (IMDb)"
-		label.font = UIFont.italicSystemFont(ofSize: 10)
+		label.font = UIFont.systemFont(ofSize: 10)
 		label.textColor = .subWhiteColor
 		return label
 	}()
