@@ -34,6 +34,9 @@
 		84BFC2052A53398400CAD8CD /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC2042A53398400CAD8CD /* RequestProtocol.swift */; };
 		84BFC2072A533AE100CAD8CD /* NetworlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC2062A533AE100CAD8CD /* NetworlError.swift */; };
 		84BFC2092A533D6A00CAD8CD /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC2082A533D6A00CAD8CD /* MovieRequest.swift */; };
+		84BFC20C2A53417B00CAD8CD /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC20B2A53417B00CAD8CD /* DataParser.swift */; };
+		84BFC2102A5342DE00CAD8CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC20F2A5342DE00CAD8CD /* NetworkManager.swift */; };
+		84BFC2122A5345F600CAD8CD /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC2112A5345F600CAD8CD /* RequestManager.swift */; };
 		84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		84BFC2042A53398400CAD8CD /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		84BFC2062A533AE100CAD8CD /* NetworlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworlError.swift; sourceTree = "<group>"; };
 		84BFC2082A533D6A00CAD8CD /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
+		84BFC20B2A53417B00CAD8CD /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		84BFC20F2A5342DE00CAD8CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		84BFC2112A5345F600CAD8CD /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +190,7 @@
 			children = (
 				841942512A2E364A002E65F1 /* App */,
 				84BFC2012A53389500CAD8CD /* Networking */,
+				84BFC2132A53484000CAD8CD /* Model */,
 				841942562A2E3A20002E65F1 /* Home Screen */,
 				841942572A2E3A2D002E65F1 /* Search Screen */,
 				841942582A2E3A38002E65F1 /* Detail Screen */,
@@ -234,12 +241,46 @@
 		84BFC2012A53389500CAD8CD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				84BFC2042A53398400CAD8CD /* RequestProtocol.swift */,
 				84BFC2022A5338BE00CAD8CD /* ApiConstants.swift */,
-				84BFC2062A533AE100CAD8CD /* NetworlError.swift */,
-				84BFC2082A533D6A00CAD8CD /* MovieRequest.swift */,
+				84BFC20A2A53416600CAD8CD /* parser */,
+				84BFC20D2A53422D00CAD8CD /* errors */,
+				84BFC20E2A53424B00CAD8CD /* request */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		84BFC20A2A53416600CAD8CD /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				84BFC20B2A53417B00CAD8CD /* DataParser.swift */,
+			);
+			path = parser;
+			sourceTree = "<group>";
+		};
+		84BFC20D2A53422D00CAD8CD /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				84BFC2062A533AE100CAD8CD /* NetworlError.swift */,
+			);
+			path = errors;
+			sourceTree = "<group>";
+		};
+		84BFC20E2A53424B00CAD8CD /* request */ = {
+			isa = PBXGroup;
+			children = (
+				84BFC2042A53398400CAD8CD /* RequestProtocol.swift */,
+				84BFC2082A533D6A00CAD8CD /* MovieRequest.swift */,
+				84BFC20F2A5342DE00CAD8CD /* NetworkManager.swift */,
+				84BFC2112A5345F600CAD8CD /* RequestManager.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		84BFC2132A53484000CAD8CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		84C1D5032A2E552C00AE6AE4 /* Extensions */ = {
@@ -333,10 +374,13 @@
 				8419425E2A2E3B1B002E65F1 /* SearchViewController.swift in Sources */,
 				8494E8562A382F370065E366 /* DetailScreenView.swift in Sources */,
 				8494E8582A3840EB0065E366 /* MainInfoView.swift in Sources */,
+				84BFC2102A5342DE00CAD8CD /* NetworkManager.swift in Sources */,
 				8494E85A2A38450D0065E366 /* TimeRaitngView.swift in Sources */,
 				845DFE532A34C44D000F826F /* ContinueWatchingView.swift in Sources */,
 				8415F2732A3440E100DF8FFB /* TrendingMoviesCell.swift in Sources */,
 				84BE57F02A322CE1002941BB /* HomeScreenView.swift in Sources */,
+				84BFC2122A5345F600CAD8CD /* RequestManager.swift in Sources */,
+				84BFC20C2A53417B00CAD8CD /* DataParser.swift in Sources */,
 				8415F2792A344E8700DF8FFB /* UIView + Extension.swift in Sources */,
 				8468F3592A2CCB4D00AD8329 /* AppDelegate.swift in Sources */,
 				8494E8542A382D9F0065E366 /* DetailViewController.swift in Sources */,

@@ -8,7 +8,7 @@ import Foundation
 
 protocol RequestProtocol {
     var path: String { get }
-    var params: [String: Any] { get }
+    var urlParams: [String: String?] { get }
 }
 
 // MARK : - Default Implementation
@@ -18,8 +18,8 @@ extension RequestProtocol {
         APIConstants.host
     }
     
-    var params: [String: Any] {
-        ["key": APIConstants.key]
+    var urlParams: [String: Any] {
+        [:]
     }
     
     func createURLRequest() throws -> URLRequest {
