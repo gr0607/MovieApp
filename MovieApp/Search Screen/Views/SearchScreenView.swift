@@ -40,7 +40,7 @@ class SearchView: UIView {
 
 		layout.sectionInset = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
 		layout.minimumLineSpacing = 10
-		layout.itemSize = CGSize(width: 170, height: 240)
+		layout.itemSize = CGSize(width: 150, height: 240)
 
 		let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		return cv

@@ -86,13 +86,13 @@ class DetailScreenView: UIView {
 			make.height.equalTo(1)
 			make.left.equalToSuperview().offset(12)
 			make.right.equalToSuperview().offset(-12)
-			make.top.equalTo(mainInfoView.snp.bottom).offset(8)
+			make.top.equalTo(mainInfoView.snp.bottom).offset(14)
 		}
 
 		genreView.snp.makeConstraints { make in
 			make.left.equalToSuperview().offset(12)
 			make.right.equalToSuperview().offset(-12)
-			make.top.equalTo(mainSeparatorView).offset(8)
+			make.top.equalTo(mainSeparatorView).offset(14)
 			make.height.equalTo(60)
 		}
 
@@ -100,13 +100,13 @@ class DetailScreenView: UIView {
 			make.height.equalTo(1)
 			make.left.equalToSuperview().offset(12)
 			make.right.equalToSuperview().offset(-12)
-			make.top.equalTo(genreView.snp.bottom).offset(8)
+			make.top.equalTo(genreView.snp.bottom).offset(14)
 		}
 
 		aboutView.snp.makeConstraints { make in
 			make.left.equalToSuperview().offset(12)
 			make.right.equalToSuperview().offset(-12)
-			make.top.equalTo(secondSeparatorView.snp.bottom).offset(8)
+			make.top.equalTo(secondSeparatorView.snp.bottom).offset(14)
 			make.bottom.equalToSuperview()
 		}
 
