@@ -11,6 +11,7 @@ class HomeView: UIView{
 	private static let moviesReuseID = "moviesReuseID"
 
 	//MARK: - Properties
+     var moviesViewModel: MoviesViewModel?
 
 	private let mainLabel: UILabel = {
 		let label = UILabel()
@@ -126,7 +127,7 @@ class HomeView: UIView{
 
 extension HomeView: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+        return moviesViewModel?.getCountOfMovies() ?? 0
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

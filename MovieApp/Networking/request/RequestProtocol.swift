@@ -28,8 +28,11 @@ extension RequestProtocol {
         components.host = host
         components.path = path
         
-        guard let url = components.url else { throw NetworkError.invalidURL}
+        if !urlParams.isEmpty {
+          components.queryItems = urlParams.map { URLQueryItem(name: $0, value: $1) }
+        }
         
+        guard let url = components.url else { throw NetworkError.invalidURL}
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")

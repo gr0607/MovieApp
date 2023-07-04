@@ -25,8 +25,8 @@ class RequestManager: RequestManagerProtocol {
             switch response {
             case .success(let data):
                 do {
-                    let object = try self?.parser.parse(data: data) ?? nil as T?
-                    completionHangler(object)
+                    let decodedData: T = try JSONDecoder().decode(T.self, from: data)
+                     completionHangler(decodedData)
                 } catch let error{
                     print("Cannot conver data \(error.localizedDescription)")
                 }

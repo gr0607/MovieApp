@@ -10,10 +10,13 @@ import UIKit
 class HomeViewController: UIViewController {
 
 	private let homeView = HomeView()
+    private let moviesViewModel = MoviesViewModel()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configreUI()
+        homeView.moviesViewModel = moviesViewModel
+        moviesViewModel.fetchMovies()
 	}
 
 	func configreUI() {

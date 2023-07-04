@@ -15,7 +15,7 @@ case getPopularMovies
     }
     
     var urlParams: [String : String?] {
-        var params = ["key":APIConstants.key]
+        var params = ["api_key":APIConstants.key]
         return params
     }
 }
