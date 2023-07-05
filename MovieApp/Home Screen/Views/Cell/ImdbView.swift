@@ -26,7 +26,7 @@ class ImdbView: UIView {
 		return iv
 	}()
 
-	private let scoreLabel: UILabel = {
+	 let scoreLabel: UILabel = {
 		let label = UILabel()
 		label.text = "7.0"
 		label.font = UIFont.systemFont(ofSize: 14)

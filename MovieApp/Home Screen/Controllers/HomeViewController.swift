@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
 
 	private let homeView = HomeView()
     private let moviesViewModel = MoviesViewModel()
+  
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -33,4 +35,6 @@ class HomeViewController: UIViewController {
 			homeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
+    
+   
 }

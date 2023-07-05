@@ -27,6 +27,8 @@
 		8494E8562A382F370065E366 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E8552A382F370065E366 /* DetailScreenView.swift */; };
 		8494E8582A3840EB0065E366 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E8572A3840EB0065E366 /* MainInfoView.swift */; };
 		8494E85A2A38450D0065E366 /* TimeRaitngView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8494E8592A38450D0065E366 /* TimeRaitngView.swift */; };
+		84956D6C2A55CC27004D738B /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84956D6B2A55CC27004D738B /* MovieViewModel.swift */; };
+		84956D6F2A55D028004D738B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 84956D6E2A55D028004D738B /* SDWebImage */; };
 		84AB87912A54855C00858C86 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB87902A54855C00858C86 /* Movies.swift */; };
 		84AB87942A54864B00858C86 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AB87932A54864B00858C86 /* MoviesViewModel.swift */; };
 		84B3ED012A39F30900576D4B /* GenreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3ED002A39F30900576D4B /* GenreView.swift */; };
@@ -64,6 +66,7 @@
 		8494E8552A382F370065E366 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
 		8494E8572A3840EB0065E366 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		8494E8592A38450D0065E366 /* TimeRaitngView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRaitngView.swift; sourceTree = "<group>"; };
+		84956D6B2A55CC27004D738B /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		84AB87902A54855C00858C86 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		84AB87932A54864B00858C86 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		84B3ED002A39F30900576D4B /* GenreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreView.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84956D6F2A55D028004D738B /* SDWebImage in Frameworks */,
 				843B11A22A3710E000E00994 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				84AB87932A54864B00858C86 /* MoviesViewModel.swift */,
+				84956D6B2A55CC27004D738B /* MovieViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 			name = MovieApp;
 			packageProductDependencies = (
 				843B11A12A3710E000E00994 /* SnapKit */,
+				84956D6E2A55D028004D738B /* SDWebImage */,
 			);
 			productName = MovieApp;
 			productReference = 8468F3552A2CCB4D00AD8329 /* MovieApp.app */;
@@ -355,6 +361,7 @@
 			mainGroup = 8468F34C2A2CCB4D00AD8329;
 			packageReferences = (
 				843B11A02A3710E000E00994 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				84956D6D2A55D028004D738B /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 8468F3562A2CCB4D00AD8329 /* Products */;
 			projectDirPath = "";
@@ -389,6 +396,7 @@
 				8494E8562A382F370065E366 /* DetailScreenView.swift in Sources */,
 				8494E8582A3840EB0065E366 /* MainInfoView.swift in Sources */,
 				84BFC2102A5342DE00CAD8CD /* NetworkManager.swift in Sources */,
+				84956D6C2A55CC27004D738B /* MovieViewModel.swift in Sources */,
 				8494E85A2A38450D0065E366 /* TimeRaitngView.swift in Sources */,
 				845DFE532A34C44D000F826F /* ContinueWatchingView.swift in Sources */,
 				8415F2732A3440E100DF8FFB /* TrendingMoviesCell.swift in Sources */,
@@ -615,6 +623,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		84956D6D2A55D028004D738B /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -622,6 +638,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 843B11A02A3710E000E00994 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		84956D6E2A55D028004D738B /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84956D6D2A55D028004D738B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

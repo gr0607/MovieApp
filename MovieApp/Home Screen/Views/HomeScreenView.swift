@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 class HomeView: UIView{
 	private static let moviesReuseID = "moviesReuseID"
 
 	//MARK: - Properties
-     var moviesViewModel: MoviesViewModel?
+    private var cancellable = Set<AnyCancellable>()
+    var moviesViewModel: MoviesViewModel? {
+        didSet {
+            bindTo()
+        }
+    }
 
 	private let mainLabel: UILabel = {
 		let label = UILabel()
@@ -51,7 +57,7 @@ class HomeView: UIView{
 		let layout = UICollectionViewFlowLayout()
 		layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 		layout.minimumLineSpacing = 30
-		layout.itemSize = CGSize(width: 260, height: 390)
+		layout.itemSize = CGSize(width: 260, height: 360)
 		layout.scrollDirection = .horizontal
 
 		let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -123,6 +129,16 @@ class HomeView: UIView{
 		trendingMoviewCollectionView.dataSource = self
 		trendingMoviewCollectionView.register(TrendingMoviesCell.self, forCellWithReuseIdentifier: HomeView.moviesReuseID)
 	}
+    
+    private func bindTo() {
+        guard let moviesViewModel = moviesViewModel else { return }
+        moviesViewModel.$moviesStore
+            .receive(on: DispatchQueue.main)
+            .sink { movie in
+            self.trendingMoviewCollectionView.reloadData()
+        }
+        .store(in: &cancellable)
+    }
 }
 
 extension HomeView: UICollectionViewDataSource {
@@ -131,7 +147,12 @@ extension HomeView: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeView.moviesReuseID, for: indexPath)
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeView.moviesReuseID, for: indexPath) as? TrendingMoviesCell,
+              let movieViewModel = moviesViewModel?.getMovieViewModelByIndex(indexPath.row)
+                else { return UICollectionViewCell()}
+    
+        cell.configureCell(with: movieViewModel)
+        
 		return cell
 	}
 }

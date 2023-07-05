@@ -15,7 +15,7 @@ class TrendingMoviesCell: UICollectionViewCell {
 		imageView.image = UIImage(named: "scaryMovie")!
 		imageView.contentMode = .scaleAspectFill
 		imageView.clipsToBounds = true
-		imageView.layer.cornerRadius = 20
+		imageView.layer.cornerRadius = 25
 		return imageView
 	}()
 
@@ -65,4 +65,10 @@ class TrendingMoviesCell: UICollectionViewCell {
 			imdbView.widthAnchor.constraint(equalToConstant: 80)
 		])
 	}
+    
+    func configureCell(with movieViewModel : MovieViewModel) {
+        self.nameContainerView.nameLabel.text = movieViewModel.name
+        self.movieImageView.sd_setImage(with: movieViewModel.imageUrl)
+        self.imdbView.scoreLabel.text = movieViewModel.rating
+    }
 }

@@ -6,17 +6,14 @@
 //
 
 import Foundation
+import Combine
 
-class MoviesViewModel {
+class MoviesViewModel: ObservableObject {
     
     let requestManager = RequestManager()
     let popularMovieRequest = MoviesRequest.getPopularMovies
     
-    private var moviesStore: [Movie]? {
-        didSet {
-            print("DEBUG", moviesStore!.count)
-        }
-    }
+    @Published var moviesStore: [Movie]?
     
     
     func fetchMovies() {
@@ -30,5 +27,13 @@ class MoviesViewModel {
         guard let moviesStore = moviesStore else { return 0}
         return moviesStore.count
     }
+    
+    func getMovieViewModelByIndex(_ index: Int) -> MovieViewModel? {
+        guard let moviesStore = moviesStore else { return nil}
+        
+        let movie = moviesStore[index]
+        return MovieViewModel(movie: movie)
+    }
+    
 }
 
