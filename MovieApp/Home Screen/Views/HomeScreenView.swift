@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SDWebImage
 
 class HomeView: UIView{
 	private static let moviesReuseID = "moviesReuseID"
@@ -37,7 +38,7 @@ class HomeView: UIView{
 		mainImage.image = UIImage(named: "homeFilm")
 		mainImage.clipsToBounds = true
 		mainImage.layer.cornerRadius = 16
-		mainImage.contentMode = .scaleAspectFill
+        mainImage.contentMode = .scaleAspectFill
 
 		return mainImage
 	}()
@@ -136,8 +137,15 @@ class HomeView: UIView{
             .receive(on: DispatchQueue.main)
             .sink { movie in
             self.trendingMoviewCollectionView.reloadData()
+                self.configureContinueWatchingView(with: moviesViewModel.getMovieViewModelByIndex(0))
         }
         .store(in: &cancellable)
+    }
+    
+    private func configureContinueWatchingView(with movieViewModel : MovieViewModel?) {
+        guard let movieViewModel = movieViewModel else { return }
+        self.continueWatchingView.filmNameLabel.text = movieViewModel.name
+        self.mainImage.sd_setImage(with: movieViewModel.imageUrl)
     }
 }
 

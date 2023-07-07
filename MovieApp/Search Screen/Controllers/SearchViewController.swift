@@ -11,10 +11,12 @@ import SnapKit
 class SearchViewController: UIViewController {
 
 	private let searchView = SearchView()
+    private let searchViewModel = SearchViewModel()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
+        searchView.searchViewModel = searchViewModel
 	}
 
 	private func setupUI() {
@@ -24,7 +26,8 @@ class SearchViewController: UIViewController {
 		self.view.addSubview(searchView)
 		searchView.snp.makeConstraints { make in
 			make.top.equalTo(self.view.safeAreaLayoutGuide)
-			make.left.right.bottom.equalToSuperview()
+			make.left.right.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
 		}
 	}
 

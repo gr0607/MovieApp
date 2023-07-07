@@ -11,7 +11,7 @@ class ContinueWatchingView: UIView {
 
 	//MARK: - Properties
 
-	private let playImageView: UIImageView = {
+	 private let playImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.image = UIImage(named: "Play-1")
 		imageView.contentMode = .scaleAspectFit
@@ -26,11 +26,14 @@ class ContinueWatchingView: UIView {
 		return label
 	}()
 
-	private let filmNameLabel: UILabel = {
+	 let filmNameLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Some Awesome movie"
 		label.font = UIFont.boldSystemFont(ofSize: 16)
 		label.textColor = .white
+         label.numberOfLines = 0
+         label.textAlignment = .center
+         label.minimumScaleFactor = 0.2
 		return label
 	}()
 

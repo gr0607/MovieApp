@@ -21,7 +21,7 @@ class RequestManager: RequestManagerProtocol {
     }
     
     func perform<T>(_ request: RequestProtocol, completionHangler: @escaping (T?) -> ()) where T : Decodable {
-        networkManager.perform(request) {[weak self] response in
+        networkManager.perform(request) { response in
             switch response {
             case .success(let data):
                 do {

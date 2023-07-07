@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FilmsCollectionViewCell: UICollectionViewCell {
 
@@ -25,6 +26,10 @@ class FilmsCollectionViewCell: UICollectionViewCell {
 		label.text = "Scary movie"
 		label.textColor = .white
 		label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.minimumScaleFactor = 0.2
 		return label
 	}()
 
@@ -58,4 +63,9 @@ class FilmsCollectionViewCell: UICollectionViewCell {
 			make.left.bottom.right.equalToSuperview()
 		}
 	}
+    
+    func configureCell(with movieViewModel: MovieViewModel) {
+        self.filmNameLabel.text = movieViewModel.name
+        self.filmImageView.sd_setImage(with: movieViewModel.imageUrl)
+    }
 }

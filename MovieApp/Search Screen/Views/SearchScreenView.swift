@@ -7,19 +7,29 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class SearchView: UIView {
+    
+    private var canclellable = Set<AnyCancellable>()
+    
 	private static let reuseId = "filmsReuseId"
+    var searchViewModel: SearchViewModel? {
+        didSet {
+            bindTo()
+        }
+    }
 
-	private let genreSegmentedControl: UISegmentedControl = {
-		let segmentedControl = UISegmentedControl(items: ["Movies", "Tv Series", "Documentary", "Sport"])
+	 let genreSegmentedControl: UISegmentedControl = {
+		let segmentedControl = UISegmentedControl(items: ["Action", "Cartoon", "Documentary", "Horror"])
 
 		segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
 
 		segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: UIControl.State.selected)
 		segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
 
-
+         
 		//TODO:- Make .main
 		segmentedControl.selectedSegmentTintColor = .mainThemeColor
 		segmentedControl.backgroundColor = .mainThemeColor
@@ -63,7 +73,6 @@ class SearchView: UIView {
 
 	private func configureUI() {
 		self.backgroundColor = .mainThemeColor
-
 		self.addSubview(genreSegmentedControl)
 		self.addSubview(filmsCollectionView)
 	}
@@ -86,18 +95,39 @@ class SearchView: UIView {
 		filmsCollectionView.dataSource = self
 		filmsCollectionView.delegate = self
 	}
+    
+    private func bindTo() {
+        guard let searchViewModel = searchViewModel else { return }
+        searchViewModel.$moviesStore
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] movies in
+                self?.filmsCollectionView.reloadData()
+            }
+            .store(in: &canclellable)
+    }
+    
+    @objc func handleSegmentedControl(_ sender: UISegmentedControl) {
+        guard let searchViewModel = searchViewModel else { return }
+        let index = genreSegmentedControl.selectedSegmentIndex
+        
+        searchViewModel.fetchMoviesWithSearchIndex(index)
+    }
 }
 
 //MARK: - UICollectionViewDataSource
 
 extension SearchView: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+        return searchViewModel?.getNumberOfRows() ?? 0
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchView.reuseId, for: indexPath) as! FilmsCollectionViewCell
-
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchView.reuseId, for: indexPath) as? FilmsCollectionViewCell,
+              let movieViewModel = searchViewModel?.getMoviewVieModelByIndex(indexPath.row)
+        else { return UICollectionViewCell()}
+        
+        cell.configureCell(with: movieViewModel)
+        
 		return cell
 	}
 }
