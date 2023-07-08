@@ -21,7 +21,7 @@ class MovieViewModel {
     }
     
     var imageUrl: URL? {
-        URL(string: "https://image.tmdb.org/t/p/original\(movie.posterPath!)")
+        URL(string: "https://image.tmdb.org/t/p/original\(movie.posterPath ?? "")")
     }
     
     var rating: String {

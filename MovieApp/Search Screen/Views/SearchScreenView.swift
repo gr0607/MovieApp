@@ -110,7 +110,7 @@ class SearchView: UIView {
         guard let searchViewModel = searchViewModel else { return }
         let index = genreSegmentedControl.selectedSegmentIndex
         
-        searchViewModel.fetchMoviesWithSearchIndex(index)
+        
     }
 }
 

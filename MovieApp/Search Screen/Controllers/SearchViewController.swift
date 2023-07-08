@@ -50,6 +50,6 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
-
+        
 	}
 }

@@ -66,6 +66,6 @@ class FilmsCollectionViewCell: UICollectionViewCell {
     
     func configureCell(with movieViewModel: MovieViewModel) {
         self.filmNameLabel.text = movieViewModel.name
-        self.filmImageView.sd_setImage(with: movieViewModel.imageUrl)
+        self.filmImageView.sd_setImage(with: movieViewModel.imageUrl, placeholderImage: UIImage(named: "noimage")!)
     }
 }

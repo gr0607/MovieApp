@@ -14,9 +14,10 @@ class SearchViewModel {
     @Published var moviesStore: [Movie]?
     
     var searchId = 0
+    var searchText = ""
     
     init() {
-       fetchMoviesWithSearchIndex(0)
+       fetchMoviesWith(searchText)
     }
     
    
@@ -30,8 +31,9 @@ class SearchViewModel {
         return MovieViewModel(movie: moviesStore[index])
     }
     
-    func fetchMoviesWithSearchIndex(_ index: Int) {
-        let request = MoviesRequest(rawValue: index) ?? .searchActionMovieWith(text: "")
+    func fetchMoviesWith(_ searchText: String) {
+        let request = MoviesRequest.searchMovieWith(text: searchText)
+        print(request)
         requestManager.perform(request) { (movies: Movies?) in
             guard let movies = movies else { return }
             self.moviesStore = movies.results
