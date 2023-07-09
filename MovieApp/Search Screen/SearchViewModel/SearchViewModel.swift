@@ -13,11 +13,21 @@ class SearchViewModel {
     
     @Published var moviesStore: [Movie]?
     
-    var searchId = 0
-    var searchText = ""
+    var genreId = 28 {
+        didSet {
+            print("GENRE ID", genreId)
+            fetchMoviesWith(searchText, genreId)
+        }
+    }
+    
+    var searchText = "A" {
+        didSet {
+            fetchMoviesWith(searchText, genreId)
+        }
+    }
     
     init() {
-       fetchMoviesWith(searchText)
+       fetchMoviesWith(searchText, genreId)
     }
     
    
@@ -31,12 +41,17 @@ class SearchViewModel {
         return MovieViewModel(movie: moviesStore[index])
     }
     
-    func fetchMoviesWith(_ searchText: String) {
+    private func fetchMoviesWith(_ searchText: String, _ genreId: Int) {
         let request = MoviesRequest.searchMovieWith(text: searchText)
         print(request)
         requestManager.perform(request) { (movies: Movies?) in
             guard let movies = movies else { return }
-            self.moviesStore = movies.results
+            
+            let selected = movies.results?.filter({ movie in
+                return movie.genreIDS.contains(genreId)
+            })
+            
+            self.moviesStore = selected
         }
     }
     

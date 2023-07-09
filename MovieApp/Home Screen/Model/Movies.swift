@@ -20,7 +20,7 @@ struct Movies: Codable {
 }
 
 struct Movie: Codable {
-    let genreIDS: [Int]?
+    let genreIDS: [Int]
     let id: Int?
     let originalTitle, overview: String?
     let popularity: Double?

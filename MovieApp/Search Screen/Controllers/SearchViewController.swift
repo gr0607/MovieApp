@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
 	private func setupUI() {
 		setupNavigationBar()
 		setupSearchController()
-
+        searchView.delegate = self
 		self.view.addSubview(searchView)
 		searchView.snp.makeConstraints { make in
 			make.top.equalTo(self.view.safeAreaLayoutGuide)
@@ -50,6 +50,21 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        
+        if text.isEmpty { searchViewModel.searchText = "A"} else {
+            searchViewModel.searchText = text
+        }
         
 	}
+}
+
+extension SearchViewController: SearchViewDelegate {
+    func selectFilmAtIndexPath(_ indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        let movieViewModel = searchViewModel.getMoviewVieModelByIndex(indexPath.row)
+        
+        detailViewController.movieViewModel = movieViewModel
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }

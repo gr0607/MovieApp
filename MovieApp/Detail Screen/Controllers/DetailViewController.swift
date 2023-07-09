@@ -10,6 +10,11 @@ import UIKit
 class DetailViewController: UIViewController {
 
 	//MARK: - Properties
+    var movieViewModel: MovieViewModel? {
+        didSet {
+            print("DETAILVIEWCONTROLLER", movieViewModel?.name)
+        }
+    }
 
 	private let detailView = DetailScreenView()
 

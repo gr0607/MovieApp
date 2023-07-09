@@ -9,9 +9,15 @@ import UIKit
 import SnapKit
 import Combine
 
+protocol SearchViewDelegate: AnyObject {
+    func selectFilmAtIndexPath(_ indexPath: IndexPath)
+}
+
 class SearchView: UIView {
     
     private var canclellable = Set<AnyCancellable>()
+    
+    weak var delegate: SearchViewDelegate?
     
 	private static let reuseId = "filmsReuseId"
     var searchViewModel: SearchViewModel? {
@@ -109,7 +115,13 @@ class SearchView: UIView {
     @objc func handleSegmentedControl(_ sender: UISegmentedControl) {
         guard let searchViewModel = searchViewModel else { return }
         let index = genreSegmentedControl.selectedSegmentIndex
-        
+        switch index {
+        case 0: searchViewModel.genreId = 28
+        case 1: searchViewModel.genreId = 16
+        case 2: searchViewModel.genreId  = 27
+        case 3: searchViewModel.genreId = 99
+        default: searchViewModel.genreId = 28
+        }
         
     }
 }
@@ -135,6 +147,8 @@ extension SearchView: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 
 extension SearchView: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectFilmAtIndexPath(indexPath)
+    }
 }
 
