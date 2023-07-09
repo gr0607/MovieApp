@@ -54,5 +54,5 @@ class SearchViewModel {
             self.moviesStore = selected
         }
     }
-    
 }
+

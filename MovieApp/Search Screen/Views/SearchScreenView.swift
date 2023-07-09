@@ -26,31 +26,6 @@ class SearchView: UIView {
         }
     }
 
-	 let genreSegmentedControl: UISegmentedControl = {
-		let segmentedControl = UISegmentedControl(items: ["Action", "Cartoon", "Documentary", "Horror"])
-
-		segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
-
-		segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: UIControl.State.selected)
-		segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
-
-         
-		//TODO:- Make .main
-		segmentedControl.selectedSegmentTintColor = .mainThemeColor
-		segmentedControl.backgroundColor = .mainThemeColor
-
-		let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.mainThemeColor.cgColor, andSize: segmentedControl.bounds.size)
-				segmentedControl.setBackgroundImage(backgroundImage, for: .normal, barMetrics: .default)
-				segmentedControl.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)
-				segmentedControl.setBackgroundImage(backgroundImage, for: .highlighted, barMetrics: .default)
-
-		let deviderImage = UIImage.getColoredRectImageWith(color: UIColor.mainThemeColor.cgColor, andSize: CGSize(width: 1.0, height: segmentedControl.bounds.size.height))
-		segmentedControl.setDividerImage(deviderImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
-
-		return segmentedControl
-	}()
-
 	private let filmsCollectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 
@@ -79,19 +54,12 @@ class SearchView: UIView {
 
 	private func configureUI() {
 		self.backgroundColor = .mainThemeColor
-		self.addSubview(genreSegmentedControl)
 		self.addSubview(filmsCollectionView)
 	}
 
 	private func setupConstraints() {
-		genreSegmentedControl.snp.makeConstraints { make in
-			make.top.equalToSuperview().offset(12)
-			make.left.right.equalToSuperview()
-		}
-
 		filmsCollectionView.snp.makeConstraints { make in
-			make.top.equalTo(self.genreSegmentedControl.snp.bottom).offset(10)
-			make.left.right.bottom.equalToSuperview()
+            make.top.left.right.bottom.equalToSuperview()
 		}
 	}
 
@@ -112,18 +80,6 @@ class SearchView: UIView {
             .store(in: &canclellable)
     }
     
-    @objc func handleSegmentedControl(_ sender: UISegmentedControl) {
-        guard let searchViewModel = searchViewModel else { return }
-        let index = genreSegmentedControl.selectedSegmentIndex
-        switch index {
-        case 0: searchViewModel.genreId = 28
-        case 1: searchViewModel.genreId = 16
-        case 2: searchViewModel.genreId  = 27
-        case 3: searchViewModel.genreId = 99
-        default: searchViewModel.genreId = 28
-        }
-        
-    }
 }
 
 //MARK: - UICollectionViewDataSource

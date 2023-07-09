@@ -44,6 +44,9 @@ class SearchViewController: UIViewController {
 		search.searchResultsUpdater = self
 		search.obscuresBackgroundDuringPresentation = false
 		search.searchBar.placeholder = "Sherlock Holmes"
+        search.searchBar.scopeButtonTitles = Genre.allCases.map{ $0.rawValue}
+        search.searchBar.delegate = self
+        definesPresentationContext = true
 		navigationItem.searchController = search
 	}
 }
@@ -66,5 +69,22 @@ extension SearchViewController: SearchViewDelegate {
         
         detailViewController.movieViewModel = movieViewModel
         navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        switch selectedScope {
+        case 0:
+            searchViewModel.genreId = 28
+        case 1:
+            searchViewModel.genreId = 16
+        case 2:
+            searchViewModel.genreId = 27
+        case 3:
+            searchViewModel.genreId = 99
+        default:
+            break
+        }
     }
 }
