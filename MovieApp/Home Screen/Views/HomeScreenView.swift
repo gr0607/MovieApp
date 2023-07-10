@@ -9,14 +9,28 @@ import UIKit
 import Combine
 import SDWebImage
 
+protocol HomeViewDelegate: AnyObject {
+    func didSelectItemAt(_ IndexPath: IndexPath)
+    func didTapLastMovie(with movieViewModel: MovieViewModel)
+}
+
 class HomeView: UIView{
 	private static let moviesReuseID = "moviesReuseID"
 
 	//MARK: - Properties
     private var cancellable = Set<AnyCancellable>()
+    
+    weak var delegate: HomeViewDelegate?
+    
     var moviesViewModel: MoviesViewModel? {
         didSet {
             bindTo()
+        }
+    }
+    
+    var movieViewModel: MovieViewModel? {
+        didSet {
+            self.configureContinueWatchingView(with: movieViewModel)
         }
     }
 
@@ -69,10 +83,12 @@ class HomeView: UIView{
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+        continueWatchingView.delegate = self
 		configureUI()
 		setupConstraints()
 		setupTrendingMoviesCollectionView()
 		trendingMoviewCollectionView.dataSource = self
+        trendingMoviewCollectionView.delegate = self
 	}
 
 	required init?(coder: NSCoder) {
@@ -137,7 +153,8 @@ class HomeView: UIView{
             .receive(on: DispatchQueue.main)
             .sink { movie in
             self.trendingMoviewCollectionView.reloadData()
-                self.configureContinueWatchingView(with: moviesViewModel.getMovieViewModelByIndex(0))
+                self.movieViewModel = moviesViewModel.getMovieViewModelByIndex(0)
+                
         }
         .store(in: &cancellable)
     }
@@ -148,6 +165,8 @@ class HomeView: UIView{
         self.mainImage.sd_setImage(with: movieViewModel.imageUrl)
     }
 }
+
+// MARK : - UICOllectionViewDataSource
 
 extension HomeView: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -163,4 +182,19 @@ extension HomeView: UICollectionViewDataSource {
         
 		return cell
 	}
+}
+
+// MARK : -UICOllectionViewDelegate
+
+extension HomeView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItemAt(indexPath)
+    }
+}
+
+extension HomeView: ContinueWatchingViewDelegate {
+    func didTapLastMovie() {
+        guard let movieViewModel = movieViewModel else { return }
+        delegate?.didTapLastMovie(with: movieViewModel)
+    }
 }

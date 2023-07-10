@@ -34,7 +34,7 @@ class MainTabBarController: UITabBarController {
 		searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")!
 
 
-		self.viewControllers = [searchVC, homeVC]
+		self.viewControllers = [homeVC, searchVC]
 	}
 
 }

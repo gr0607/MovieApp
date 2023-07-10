@@ -21,7 +21,7 @@ enum MoviesRequest: RequestProtocol {
     }
     
     var urlParams: [String : String?] {
-        var params = ["api_key":APIConstants.key]
+        var params = ["api_key":ApiConstants.key]
         switch self {
             case .searchMovieWith(let text):
             params["query"] = text

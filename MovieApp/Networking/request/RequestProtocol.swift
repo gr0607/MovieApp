@@ -15,7 +15,7 @@ protocol RequestProtocol {
 
 extension RequestProtocol {
     var host: String {
-        APIConstants.host
+        ApiConstants.host
     }
     
     var urlParams: [String: Any] {

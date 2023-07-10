@@ -15,7 +15,6 @@ class SearchViewModel {
     
     var genreId = 28 {
         didSet {
-            print("GENRE ID", genreId)
             fetchMoviesWith(searchText, genreId)
         }
     }
@@ -43,7 +42,6 @@ class SearchViewModel {
     
     private func fetchMoviesWith(_ searchText: String, _ genreId: Int) {
         let request = MoviesRequest.searchMovieWith(text: searchText)
-        print(request)
         requestManager.perform(request) { (movies: Movies?) in
             guard let movies = movies else { return }
             

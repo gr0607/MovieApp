@@ -17,9 +17,18 @@ class HomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configreUI()
+        homeView.delegate = self
         homeView.moviesViewModel = moviesViewModel
         moviesViewModel.fetchMovies()
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
 
 	func configreUI() {
 		view.backgroundColor = .mainThemeColor
@@ -36,5 +45,24 @@ class HomeViewController: UIViewController {
 		])
 	}
     
-   
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func didSelectItemAt(_ IndexPath: IndexPath) {
+        
+        guard  let movieViewModel = moviesViewModel.getMovieViewModelByIndex(IndexPath.row) else { return }
+        
+      pushViewCotroller(with: movieViewModel)
+    }
+    
+    func didTapLastMovie(with movieViewModel: MovieViewModel) {
+        pushViewCotroller(with: movieViewModel)
+    }
+    
+    func pushViewCotroller(with moviewViewModel: MovieViewModel) {
+        let detailViewController = DetailViewController()
+        detailViewController.movieViewModel = moviewViewModel
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }

@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol ContinueWatchingViewDelegate: AnyObject {
+    func didTapLastMovie()
+}
+
 class ContinueWatchingView: UIView {
 
 	//MARK: - Properties
-
+    weak var delegate: ContinueWatchingViewDelegate?
+    
 	 private let playImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.image = UIImage(named: "Play-1")
@@ -51,12 +56,15 @@ class ContinueWatchingView: UIView {
 	//MARK: - UI Helpers
 
 	private func configureUI() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(gestureTap))
+        
 		self.makeBackground()
-
+        self.addGestureRecognizer(tapGesture)
+        self.isUserInteractionEnabled = true
 		self.addSubview(playImageView)
 		self.addSubview(continiueWatchingLabel)
 		self.addSubview(filmNameLabel)
-
+    
 		setupConstraints()
 	}
 
@@ -79,4 +87,8 @@ class ContinueWatchingView: UIView {
 
 		])
 	}
+    
+     @objc func gestureTap() {
+         delegate?.didTapLastMovie()
+    }
 }
