@@ -9,6 +9,13 @@ import UIKit
 
 class DetailScreenView: UIView {
 
+    
+    var movieViewModel: MovieViewModel? {
+        didSet {
+            print("DETAILVIEWCONTROLLER", movieViewModel?.name)
+        }
+    }
+    
 	//MARK: - Properties
 	private let filmImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -111,4 +118,9 @@ class DetailScreenView: UIView {
 		}
 
 	}
+    
+    private func configureUIWithViewModel() {
+        guard let movieViewModel = movieViewModel else { return }
+        
+    }
 }

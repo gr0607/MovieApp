@@ -24,7 +24,7 @@ class AboutView: UIView {
 		let label = UILabel()
 		label.text = "Rey (Daisy Ridley) finally manages to find the legendary Jedi knight, Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including Leia, Finn.."
 		label.textColor = .subWhiteColor
-		label.numberOfLines = 0
+		label.numberOfLines = 1
 		label.font = UIFont.systemFont(ofSize: 15)
 		return label
 	}()

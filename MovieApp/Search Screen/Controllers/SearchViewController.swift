@@ -18,6 +18,14 @@ class SearchViewController: UIViewController {
 		setupUI()
         searchView.searchViewModel = searchViewModel
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
 
 	private func setupUI() {
 		setupNavigationBar()

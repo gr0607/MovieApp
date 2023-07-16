@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 	//MARK: - Properties
     var movieViewModel: MovieViewModel? {
         didSet {
-            print("DETAILVIEWCONTROLLER", movieViewModel?.name)
+            detailView.movieViewModel = movieViewModel
         }
     }
 
@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureUI()
+        navigationItem.largeTitleDisplayMode = .never
 	}
 
 	//MARK: - Helpers function
@@ -31,7 +32,8 @@ class DetailViewController: UIViewController {
 		self.view.addSubview(detailView)
 
 		detailView.snp.makeConstraints { make in
-			make.edges.equalToSuperview()
+            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalToSuperview()
 		}
 	}
 }

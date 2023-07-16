@@ -34,11 +34,12 @@ class ContinueWatchingView: UIView {
 	 let filmNameLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Some Awesome movie"
-		label.font = UIFont.boldSystemFont(ofSize: 16)
+		label.font = UIFont.boldSystemFont(ofSize: 14)
 		label.textColor = .white
-         label.numberOfLines = 0
-         label.textAlignment = .center
-         label.minimumScaleFactor = 0.2
+        label.numberOfLines = 0
+         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        label.minimumScaleFactor = 0.2
 		return label
 	}()
 
@@ -83,8 +84,9 @@ class ContinueWatchingView: UIView {
 			continiueWatchingLabel.leftAnchor.constraint(equalTo: playImageView.rightAnchor, constant: 10),
 
 			filmNameLabel.topAnchor.constraint(equalTo: continiueWatchingLabel.bottomAnchor, constant: 4),
-			filmNameLabel.leftAnchor.constraint(equalTo: playImageView.rightAnchor, constant: 10)
-
+			filmNameLabel.leftAnchor.constraint(equalTo: playImageView.rightAnchor, constant: 10),
+            filmNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
+            filmNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
 		])
 	}
     
