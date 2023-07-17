@@ -19,7 +19,7 @@ enum MoviesRequest: RequestProtocol {
         case .searchMovieWith:
             return "/3/search/movie"
         case .getMovieDetailsWith(let id):
-            return "/3/movie\(id)"
+            return "/3/movie/\(id)"
         }
     }
     

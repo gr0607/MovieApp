@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class MovieDetailViewController: UIViewController {
 
 	//MARK: - Properties
-   
+    private var cancellable = Set<AnyCancellable>()
+    
+    private let movieDetailViewModel = MovieDetailViewModel()
+    var id: Int?
 	private let detailView = DetailScreenView()
 
 	//MARK: - Lifecycle
@@ -18,8 +22,11 @@ class MovieDetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureUI()
+        movieDetailViewModel.fetchMovieDetailWith(id: id)
         navigationItem.largeTitleDisplayMode = .never
+        bindTo()
 	}
+    
 
 	//MARK: - Helpers function
 
@@ -31,4 +38,13 @@ class MovieDetailViewController: UIViewController {
             make.left.right.equalToSuperview()
 		}
 	}
+    
+    private func bindTo() {
+        movieDetailViewModel.$movieDetail
+            .receive(on: DispatchQueue.main)
+            .sink { movieDetail in
+                print("ALOXA", movieDetail?.title, movieDetail?.genres)
+            }
+            .store(in: &cancellable)
+    }
 }

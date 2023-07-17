@@ -16,6 +16,10 @@ class MovieViewModel {
         self.movie = movie
     }
     
+    var id: Int {
+        movie.id ?? 0
+    }
+    
     var name: String {
         movie.originalTitle ?? "NoName"
     }

@@ -15,11 +15,13 @@ class MovieDetailViewModel {
     @Published var movieDetail: MovieDetail?
     
     
-    func fetchMovieDetailWith(id: Int) {
+    func fetchMovieDetailWith(id: Int?) {
+        guard let id = id else { return }
         let request = MoviesRequest.getMovieDetailsWith(id: id)
-        
+        print("REQUEST", request)
+        print("HERE DETAIL")
         requestManager.perform(request) { (movieDetail: MovieDetail?) in
-            print(movieDetail?.title, movieDetail?.runtime)
+            self.movieDetail = movieDetail
         }
     }
 }

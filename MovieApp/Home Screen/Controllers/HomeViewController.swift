@@ -54,16 +54,16 @@ extension HomeViewController: HomeViewDelegate {
         
         guard  let movieViewModel = moviesViewModel.getMovieViewModelByIndex(IndexPath.row) else { return }
         
-      pushViewCotroller(with: movieViewModel)
+        pushViewCotroller(with: movieViewModel.id)
     }
     
     func didTapLastMovie(with movieViewModel: MovieViewModel) {
-        pushViewCotroller(with: movieViewModel)
+        pushViewCotroller(with: movieViewModel.id)
     }
     
-    func pushViewCotroller(with moviewViewModel: MovieViewModel) {
+    func pushViewCotroller(with id: Int) {
         let detailViewController = MovieDetailViewController()
-       
+        detailViewController.id = id
         navigationController?.navigationBar.isHidden = false
         navigationController?.pushViewController(detailViewController, animated: true)
     }
