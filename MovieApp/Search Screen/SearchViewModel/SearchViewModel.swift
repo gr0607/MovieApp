@@ -29,7 +29,6 @@ class SearchViewModel {
        fetchMoviesWith(searchText, genreId)
     }
     
-   
     
     func getNumberOfRows() -> Int{
         return moviesStore?.count ?? 0

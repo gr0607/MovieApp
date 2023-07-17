@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
 		search.searchResultsUpdater = self
 		search.obscuresBackgroundDuringPresentation = false
 		search.searchBar.placeholder = "Sherlock Holmes"
-        search.searchBar.scopeButtonTitles = Genre.allCases.map{ $0.rawValue}
+        search.searchBar.scopeButtonTitles = Genres.allCases.map{ $0.rawValue}
         search.searchBar.delegate = self
         definesPresentationContext = true
 		navigationItem.searchController = search

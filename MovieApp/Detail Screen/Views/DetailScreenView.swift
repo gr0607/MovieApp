@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailScreenView: UIView {
 
-    
     var movieViewModel: MovieViewModel? {
         didSet {
-            print("DETAILVIEWCONTROLLER", movieViewModel?.name)
+           mainInfoView.movieViewModel = movieViewModel
+         //  genreView.movieViewModel = movieViewModel
+       //    timeRatingView.movieViewModel = movieViewModel
+        //   aboutView.movieViewModel = movieViewModel
+        
+           configureUIWithViewModel()
         }
     }
     
@@ -121,6 +126,6 @@ class DetailScreenView: UIView {
     
     private func configureUIWithViewModel() {
         guard let movieViewModel = movieViewModel else { return }
-        
+        filmImageView.sd_setImage(with: movieViewModel.imageUrl)
     }
 }

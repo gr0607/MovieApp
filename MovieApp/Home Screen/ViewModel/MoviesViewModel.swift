@@ -30,7 +30,6 @@ class MoviesViewModel: ObservableObject {
     
     func getMovieViewModelByIndex(_ index: Int) -> MovieViewModel? {
         guard let moviesStore = moviesStore else { return nil}
-        
         let movie = moviesStore[index]
         return MovieViewModel(movie: movie)
     }

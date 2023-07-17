@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum Genre: CaseIterable {
+enum Genres: CaseIterable {
     case action
     case cartoon
     case documentary
     case horror
 }
 
-extension Genre: RawRepresentable {
+extension Genres: RawRepresentable {
     typealias RawValue = String
     
     init?(rawValue: RawValue) {
