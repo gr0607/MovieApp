@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController {
 
 	//MARK: - Properties
    

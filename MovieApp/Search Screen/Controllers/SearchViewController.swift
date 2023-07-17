@@ -72,7 +72,7 @@ extension SearchViewController: UISearchResultsUpdating {
 
 extension SearchViewController: SearchViewDelegate {
     func selectFilmAtIndexPath(_ indexPath: IndexPath) {
-        let detailViewController = DetailViewController()
+        let detailViewController = MovieDetailViewController()
         let movieViewModel = searchViewModel.getMoviewVieModelByIndex(indexPath.row)
         
         navigationController?.pushViewController(detailViewController, animated: true)
