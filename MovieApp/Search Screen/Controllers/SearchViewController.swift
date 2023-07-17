@@ -75,7 +75,6 @@ extension SearchViewController: SearchViewDelegate {
         let detailViewController = DetailViewController()
         let movieViewModel = searchViewModel.getMoviewVieModelByIndex(indexPath.row)
         
-        detailViewController.movieViewModel = movieViewModel
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

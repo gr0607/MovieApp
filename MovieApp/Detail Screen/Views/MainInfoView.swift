@@ -10,12 +10,6 @@ import UIKit
 class MainInfoView: UIView {
 
 	//MARK: - Properties
-    var movieViewModel: MovieViewModel? {
-        didSet {
-           configureUIWithViewModel()
-            timeRatingView.movieViewModel = movieViewModel
-        }
-    }
 
 	private let nameLabel: UILabel = {
 		let label = UILabel()
@@ -54,8 +48,5 @@ class MainInfoView: UIView {
 			make.top.equalTo(nameLabel.snp.bottom).offset(4)
 		}
 	}
-    
-    private func configureUIWithViewModel() {
-        self.nameLabel.text = movieViewModel?.name
-    }
+
 }

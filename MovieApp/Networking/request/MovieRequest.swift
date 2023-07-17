@@ -10,6 +10,7 @@ import Foundation
 enum MoviesRequest: RequestProtocol {
     case searchMovieWith(text: String)
     case getPopularMovies
+    case getMovieDetailsWith(id: Int)
     
     var path: String {
         switch self {
@@ -17,6 +18,8 @@ enum MoviesRequest: RequestProtocol {
            return "/3/movie/popular"
         case .searchMovieWith:
             return "/3/search/movie"
+        case .getMovieDetailsWith(let id):
+            return "/3/movie\(id)"
         }
     }
     
@@ -26,6 +29,8 @@ enum MoviesRequest: RequestProtocol {
             case .searchMovieWith(let text):
             params["query"] = text
             case .getPopularMovies:
+            print("")
+            case  .getMovieDetailsWith(let id):
             print("")
         }
         return params

@@ -45,6 +45,7 @@
 		84BFC2122A5345F600CAD8CD /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFC2112A5345F600CAD8CD /* RequestManager.swift */; };
 		84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */; };
 		84EE74AE2A65AB0100BD5AE8 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE74AD2A65AB0100BD5AE8 /* MovieDetail.swift */; };
+		84EE74B02A65AD7100BD5AE8 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE74AF2A65AD7100BD5AE8 /* MovieDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		84BFC2112A5345F600CAD8CD /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		84C1D5042A2E555100AE6AE4 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		84EE74AD2A65AB0100BD5AE8 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		84EE74AF2A65AD7100BD5AE8 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 		84EE74AC2A65A7D700BD5AE8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				84EE74AF2A65AD7100BD5AE8 /* MovieDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				843B119F2A370EF100E00994 /* SearchScreenView.swift in Sources */,
 				84B3ED012A39F30900576D4B /* GenreView.swift in Sources */,
 				84C1D5052A2E555100AE6AE4 /* UIColor + Extension.swift in Sources */,
+				84EE74B02A65AD7100BD5AE8 /* MovieDetailViewModel.swift in Sources */,
 				84BFC2072A533AE100CAD8CD /* NetworlError.swift in Sources */,
 				841942542A2E3702002E65F1 /* MainTabBarController.swift in Sources */,
 				84BFC2092A533D6A00CAD8CD /* MovieRequest.swift in Sources */,

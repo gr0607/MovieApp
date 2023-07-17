@@ -10,11 +10,6 @@ import UIKit
 class TimeRatingView: UIView {
 
 	//MARK: - Properties
-    var movieViewModel: MovieViewModel? {
-        didSet {
-           configureUIWithViewModel()
-        }
-    }
 
 	private let timeImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -83,8 +78,5 @@ class TimeRatingView: UIView {
 			make.left.equalTo(timeStackView.snp.right).offset(20)
 		}
 	}
-    
-    private func configureUIWithViewModel() {
-        self.raitingLabel.text = "\(movieViewModel?.rating) (IMDb)"
-    }
+
 }

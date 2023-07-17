@@ -63,7 +63,7 @@ extension HomeViewController: HomeViewDelegate {
     
     func pushViewCotroller(with moviewViewModel: MovieViewModel) {
         let detailViewController = DetailViewController()
-        detailViewController.movieViewModel = moviewViewModel
+       
         navigationController?.navigationBar.isHidden = false
         navigationController?.pushViewController(detailViewController, animated: true)
     }
