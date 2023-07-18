@@ -7,10 +7,18 @@
 
 import UIKit
 import SDWebImage
+import Combine
 
 class DetailScreenView: UIView {
 
-       
+    private var cancellable = Set<AnyCancellable>()
+    
+    var moviewDetailViewModel: MovieDetailViewModel? {
+        didSet {
+            bindTo()
+        }
+    }
+    
 	//MARK: - Properties
 	private let filmImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -113,5 +121,18 @@ class DetailScreenView: UIView {
 		}
 
 	}
+    
+    private func bindTo() {
+        moviewDetailViewModel?.$movieDetail
+            .receive(on: DispatchQueue.main)
+            .sink { movieDetail in
+                self.mainInfoView.moviewDetailViewModel = self.moviewDetailViewModel
+                self.genreView.moviewDetailViewModel = self.moviewDetailViewModel
+                self.aboutView.moviewDetailViewModel = self.moviewDetailViewModel
+                
+                self.filmImageView.sd_setImage(with: self.moviewDetailViewModel?.imageUrl)
+            }
+            .store(in: &cancellable)
+    }
     
 }

@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 class AboutView: UIView {
 
 	//MARK: - Properties
+    private var cancellable = Set<AnyCancellable>()
+    
+    var moviewDetailViewModel: MovieDetailViewModel? {
+        didSet {
+            bindTo()
+        }
+    }
 
 	private let aboutNameLabel: UILabel = {
 		let label = UILabel()
@@ -58,4 +66,13 @@ class AboutView: UIView {
 		}
 
 	}
+    
+    private func bindTo() {
+        moviewDetailViewModel?.$movieDetail
+            .receive(on: DispatchQueue.main)
+            .sink { movieDetail in
+                self.aboutTextLabel.text = self.moviewDetailViewModel?.about
+            }
+            .store(in: &cancellable)
+    }
 }

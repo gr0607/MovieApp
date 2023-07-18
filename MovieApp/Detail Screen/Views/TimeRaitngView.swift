@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 class TimeRatingView: UIView {
 
 	//MARK: - Properties
+    private var cancellable = Set<AnyCancellable>()
+    
+    var moviewDetailViewModel: MovieDetailViewModel? {
+        didSet {
+            bindTo()
+        }
+    }
 
 	private let timeImageView: UIImageView = {
 		let imageView = UIImageView()
@@ -78,5 +86,16 @@ class TimeRatingView: UIView {
 			make.left.equalTo(timeStackView.snp.right).offset(20)
 		}
 	}
+    
+    private func bindTo() {
+        moviewDetailViewModel?.$movieDetail
+            .receive(on: DispatchQueue.main)
+            .sink { movieDetail in
+                self.timeLabel.text = self.moviewDetailViewModel?.timeText
+                
+                self.raitingLabel.text = self.moviewDetailViewModel?.ratingText
+            }
+            .store(in: &cancellable)
+    }
 
 }

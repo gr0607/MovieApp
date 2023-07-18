@@ -11,7 +11,6 @@ import Combine
 class MovieDetailViewController: UIViewController {
 
 	//MARK: - Properties
-    private var cancellable = Set<AnyCancellable>()
     
     private let movieDetailViewModel = MovieDetailViewModel()
     var id: Int?
@@ -24,7 +23,6 @@ class MovieDetailViewController: UIViewController {
 		configureUI()
         movieDetailViewModel.fetchMovieDetailWith(id: id)
         navigationItem.largeTitleDisplayMode = .never
-        bindTo()
 	}
     
 
@@ -32,6 +30,7 @@ class MovieDetailViewController: UIViewController {
 
 	private func configureUI() {
 		self.view.addSubview(detailView)
+        detailView.moviewDetailViewModel = movieDetailViewModel
 
 		detailView.snp.makeConstraints { make in
             make.top.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -39,12 +38,4 @@ class MovieDetailViewController: UIViewController {
 		}
 	}
     
-    private func bindTo() {
-        movieDetailViewModel.$movieDetail
-            .receive(on: DispatchQueue.main)
-            .sink { movieDetail in
-                print("ALOXA", movieDetail?.title, movieDetail?.genres)
-            }
-            .store(in: &cancellable)
-    }
 }

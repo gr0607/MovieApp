@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import Combine
 
 class GenreView: UIView {
 
 	//MARK: - Properties
+    private var cancellable = Set<AnyCancellable>()
+    
+    var moviewDetailViewModel: MovieDetailViewModel? {
+        didSet {
+            bindTo()
+        }
+    }
 
-	private let genreLabel: UILabel = {
+	private lazy var genreLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Genre"
 		label.font = UIFont.boldSystemFont(ofSize: 22)
@@ -82,4 +90,14 @@ class GenreView: UIView {
 			make.top.equalTo(genreLabel.snp.bottom).offset(6)
 		}
 	}
+    
+    private func bindTo() {
+        moviewDetailViewModel?.$movieDetail
+            .receive(on: DispatchQueue.main)
+            .sink { movieDetail in
+                self.subGenreLabelMain.text = self.moviewDetailViewModel?.genreOne
+                self.subGenreLabelSecond.text = self.moviewDetailViewModel?.genreTwo
+            }
+            .store(in: &cancellable)
+    }
 }
