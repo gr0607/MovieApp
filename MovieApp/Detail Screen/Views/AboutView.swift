@@ -21,7 +21,7 @@ class AboutView: UIView {
 
 	private let aboutNameLabel: UILabel = {
 		let label = UILabel()
-		label.text = "About"
+		label.text = "Release Date"
 		label.font = UIFont.boldSystemFont(ofSize: 22)
 		label.textColor = .white
 		//label.backgroundColor = .green
@@ -30,7 +30,7 @@ class AboutView: UIView {
 
 	private let aboutTextLabel: UILabel = {
 		let label = UILabel()
-		label.text = "Rey (Daisy Ridley) finally manages to find the legendary Jedi knight, Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including Leia, Finn.."
+		label.text = "11/11/11"
 		label.textColor = .subWhiteColor
 		label.numberOfLines = 1
 		label.font = UIFont.systemFont(ofSize: 15)

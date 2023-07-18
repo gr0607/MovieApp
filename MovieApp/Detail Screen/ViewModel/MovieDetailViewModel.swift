@@ -39,7 +39,7 @@ class MovieDetailViewModel {
     }
     
     var about: String {
-        movieDetail?.overview ?? "About Film"
+        movieDetail?.releaseDate ?? "About Film"
     }
     
     func fetchMovieDetailWith(id: Int?) {

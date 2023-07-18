@@ -33,6 +33,7 @@ class HomeView: UIView{
             self.configureContinueWatchingView(with: movieViewModel)
         }
     }
+    
 
 	private let mainLabel: UILabel = {
 		let label = UILabel()
